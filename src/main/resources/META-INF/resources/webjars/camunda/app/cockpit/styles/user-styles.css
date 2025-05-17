@@ -1,7 +1,7 @@
 [cam-widget-header] .ce-eol-banner {
-   visibility: hidden;
+   display: none;
 }
 
 li.app-switch {
-   visibility: hidden;
+   display: none !important;
 }
