@@ -13,7 +13,21 @@ let observer = new MutationObserver(() => {
     observer.disconnect();
   }
 
-  window.location.replace("/camunda/app/welcome/default");
+  var welcomeLandingPage = "/app/welcome/default";
+  if(window.location.pathname.startsWith('/app')) {
+    // running with servlet context ROOT (/)
+    window.location.replace(welcomeLandingPage);
+  } else if(window.location.pathname.startsWith('/camunda')) {
+    // running with default servlet context (/camunda)
+    window.location.replace("/camunda" + welcomeLandingPage);
+  } else {
+    // running with other servlet context (unknown)
+    // do a best effort replace
+    var servletContext = window.location.pathname.split("/")[1];
+    var signOutRedirectUrl = '/' + servletContext + welcomeLandingPage;
+    window.location.replace(signOutRedirectUrl);
+  }
+
 
 });
 
