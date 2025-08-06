@@ -28,6 +28,9 @@ plugins {
 	id("org.springframework.boot")
 	id("io.spring.dependency-management")
 
+	// Spring boot actuator generator
+	id("com.gorylenko.gradle-git-properties") version "2.5.2"
+
 	// Kotlin
 	kotlin("jvm")
 	kotlin("plugin.spring")
@@ -59,6 +62,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.21.0")
 
 	implementation("io.github.oshai:kotlin-logging-jvm:7.0.3")

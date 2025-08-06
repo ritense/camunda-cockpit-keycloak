@@ -62,3 +62,24 @@ spring.security.oauth2:
 logging:
   level:
     org.springframework.security: DEBUG
+
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: [ "health", "info" ]
+    jmx:
+      exposure:
+        exclude: "*"
+  endpoint:
+    health:
+      show-details: when_authorized
+  info:
+    git:
+      mode: simple
+      enabled: true
+    build:
+      enabled: true
+    env:
+      enabled: true
